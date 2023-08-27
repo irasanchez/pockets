@@ -9,8 +9,7 @@ import Typography from '@mui/joy/Typography';
 // icons
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
-
+import Add from '@mui/icons-material/Add';
 import useScript from './useScript';
 import FirstSidebar from './components/FirstSidebar';
 import SecondSidebar from './components/SecondSidebar';
@@ -67,37 +66,7 @@ export default function JoyOrderDashboardTemplate() {
             gap: 1,
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Breadcrumbs
-              size="sm"
-              aria-label="breadcrumbs"
-              separator={<ChevronRightRoundedIcon fontSize="sm" />}
-            >
-              <Link
-                underline="none"
-                color="neutral"
-                href="#some-link"
-                aria-label="Home"
-              >
-                <HomeRoundedIcon />
-              </Link>
-              <Link
-                underline="hover"
-                color="neutral"
-                href="#some-link"
-                fontSize={12}
-                fontWeight={500}
-              >
-                Dashboard
-              </Link>
-              <Typography color="primary" fontWeight={500} fontSize={12}>
-                Orders
-              </Typography>
-            </Breadcrumbs>
-            <ColorSchemeToggle
-              sx={{ ml: 'auto', display: { xs: 'none', md: 'inline-flex' } }}
-            />
-          </Box>
+          
           <Box
             sx={{
               display: 'flex',
@@ -109,13 +78,13 @@ export default function JoyOrderDashboardTemplate() {
               justifyContent: 'space-between',
             }}
           >
-            <Typography level="h2">Orders</Typography>
+            <Typography level="h2">Pockets</Typography>
             <Button
               color="primary"
-              startDecorator={<DownloadRoundedIcon />}
+              startDecorator={<Add />}
               size="sm"
             >
-              Download PDF
+              Add pocket
             </Button>
           </Box>
           <OrderTable />

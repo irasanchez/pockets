@@ -10,8 +10,8 @@ import ListItemButton from '@mui/joy/ListItemButton';
 // icons
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
-import StarsIcon from '@mui/icons-material/Stars';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AccountBalance from '@mui/icons-material/AccountBalance';
+import AccountBalanceWallet from '@mui/icons-material/AccountBalanceWallet';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
@@ -42,118 +42,8 @@ export default function SecondSidebar() {
         }}
         onClick={() => closeSidebar()}
       />
-      <Sheet
-        className="SecondSidebar"
-        color="neutral"
-        sx={{
-          position: {
-            xs: 'fixed',
-            lg: 'sticky',
-          },
-          transform: {
-            xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1) + var(--SideNavigation-slideIn, 0) * var(--FirstSidebar-width, 0px)))',
-            lg: 'none',
-          },
-          transition: 'transform 0.4s',
-          zIndex: 9999,
-          height: '100dvh',
-          top: 0,
-          p: 2,
-          flexShrink: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          borderRight: '1px solid',
-          borderColor: 'divider',
-        }}
-      >
-        <List
-          size="sm"
-          sx={{
-            '--ListItem-radius': '6px',
-            '--List-gap': '6px',
-          }}
-        >
-          <ListSubheader role="presentation" sx={{ fontWeight: 'lg' }}>
-            Dashboard
-          </ListSubheader>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <BubbleChartIcon />
-              </ListItemDecorator>
-              <ListItemContent>Overview</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <InsertChartIcon />
-              </ListItemDecorator>
-              <ListItemContent>Analytics</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton selected>
-              <ListItemDecorator>
-                <ShoppingCartIcon />
-              </ListItemDecorator>
-              <ListItemContent>Orders</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <StarsIcon />
-              </ListItemDecorator>
-              <ListItemContent>Saved reports</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <AccountBoxIcon />
-              </ListItemDecorator>
-              <ListItemContent>User reports</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListSubheader role="presentation" sx={{ fontWeight: 700, mt: 2 }}>
-            Workspace
-          </ListSubheader>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <PeopleRoundedIcon />
-              </ListItemDecorator>
-              <ListItemContent>Groups</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <BadgeRoundedIcon />
-              </ListItemDecorator>
-              <ListItemContent>Authentication</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <CreditCardRoundedIcon />
-              </ListItemDecorator>
-              <ListItemContent>Billing</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton onClick={() => closeSidebar()}>
-              <ListItemDecorator>
-                <AnalyticsRoundedIcon />
-              </ListItemDecorator>
-              <ListItemContent>Analytics</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </Sheet>
+      
+    
     </React.Fragment>
   );
 }
