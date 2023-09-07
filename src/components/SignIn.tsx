@@ -1,3 +1,4 @@
+// https://codesandbox.io/s/3ylnyj?file=/App.tsx
 import * as React from 'react';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import GlobalStyles from '@mui/joy/GlobalStyles';
