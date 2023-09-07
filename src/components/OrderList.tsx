@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+// mobile view
 import * as React from 'react';
 import { ColorPaletteProp } from '@mui/joy/styles';
 import Box from '@mui/joy/Box';
-import Avatar from '@mui/joy/Avatar';
 import Chip from '@mui/joy/Chip';
 import Link from '@mui/joy/Link';
 import Divider from '@mui/joy/Divider';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
+import Tooltip from '@mui/joy/Tooltip';
 import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemContent from '@mui/joy/ListItemContent';
@@ -17,7 +18,10 @@ import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Dropdown from '@mui/joy/Dropdown';
+import CircularProgress from '@mui/joy/CircularProgress';
+
 // icons
+import AccountBalanceWallet from '@mui/icons-material/AccountBalanceWallet';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import BlockIcon from '@mui/icons-material/Block';
@@ -109,6 +113,7 @@ function RowMenu() {
 }
 
 export default function OrderList() {
+
   return (
     <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
       {listItems.map((listItem) => (
@@ -127,15 +132,12 @@ export default function OrderList() {
             }}
           >
             <ListItemContent sx={{ display: 'flex', gap: 2, alignItems: 'start' }}>
-              <ListItemDecorator>
-                <Avatar size="sm">{listItem.customer.initial}</Avatar>
-              </ListItemDecorator>
               <div>
                 <Typography fontWeight={600} gutterBottom>
-                  {listItem.customer.name}
+                  Pocket name
                 </Typography>
                 <Typography level="body-xs" gutterBottom>
-                  {listItem.customer.email}
+                  Short note about this pocket
                 </Typography>
                 <Box
                   sx={{
@@ -146,66 +148,31 @@ export default function OrderList() {
                     mb: 1,
                   }}
                 >
-                  <Typography level="body-xs">{listItem.date}</Typography>
+                  <Tooltip key="pocket-name+-+account-id-deadline" title="funded by account name" arrow={true} placement="top"><Chip color="primary"><Typography level="body-xs">📆 2/3/23</Typography></Chip></Tooltip>
                   <Typography level="body-xs">&bull;</Typography>
-                  <Typography level="body-xs">{listItem.id}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                  <Link level="body-sm" component="button">
-                    Download
-                  </Link>
-                  <RowMenu />
+                  <Typography level="body-xs"><Tooltip key="pocket-name+-account-name-source" title="Details on the status of meeting this deadline" arrow={true} placement="top"><div><Chip>🏔️</Chip>        </div></Tooltip>
+                  </Typography>
                 </Box>
               </div>
             </ListItemContent>
-            <Chip
-              variant="soft"
-              size="sm"
-              startDecorator={
-                {
-                  Paid: <CheckRoundedIcon />,
-                  Refunded: <AutorenewRoundedIcon />,
-                  Cancelled: <BlockIcon />,
-                }[listItem.status]
-              }
-              color={
-                {
-                  Paid: 'success',
-                  Refunded: 'neutral',
-                  Cancelled: 'danger',
-                }[listItem.status] as ColorPaletteProp
-              }
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignSelf: "center"
+              }}
             >
-              {listItem.status}
-            </Chip>
+              <Tooltip title="more info" arrow={true} placement="left"><div><CircularProgress variant="outlined" value={25} determinate size="lg">
+                $25
+              </CircularProgress></div>
+              </Tooltip>
+            </Box>
+
           </ListItem>
           <ListDivider />
         </List>
       ))}
-      <Box
-        className="Pagination-mobile"
-        sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', py: 2 }}
-      >
-        <IconButton
-          aria-label="previous page"
-          variant="outlined"
-          color="neutral"
-          size="sm"
-        >
-          <KeyboardArrowLeftIcon />
-        </IconButton>
-        <Typography level="body-sm" mx="auto">
-          Page 1 of 10
-        </Typography>
-        <IconButton
-          aria-label="next page"
-          variant="outlined"
-          color="neutral"
-          size="sm"
-        >
-          <KeyboardArrowRightIcon />
-        </IconButton>
-      </Box>
     </Box>
   );
 }

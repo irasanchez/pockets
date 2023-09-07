@@ -1,10 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-is-valid */ 
+// desktop view
 import * as React from 'react';
 import { ColorPaletteProp } from '@mui/joy/styles';
 import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Chip from '@mui/joy/Chip';
+import CircularProgress from "@mui/joy/CircularProgress"
 import Divider from '@mui/joy/Divider';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
@@ -17,7 +19,7 @@ import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import Table from '@mui/joy/Table';
 import Sheet from '@mui/joy/Sheet';
-import Checkbox from '@mui/joy/Checkbox';
+
 import IconButton, { iconButtonClasses } from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import Menu from '@mui/joy/Menu';
@@ -25,15 +27,17 @@ import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Dropdown from '@mui/joy/Dropdown';
 // icons
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import SearchIcon from '@mui/icons-material/Search';
+import AccountBalanceWallet from '@mui/icons-material/AccountBalanceWallet';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import BlockIcon from '@mui/icons-material/Block';
 import AutorenewRoundedIcon from '@mui/icons-material/AutorenewRounded';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import BlockIcon from '@mui/icons-material/Block';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
+import SearchIcon from '@mui/icons-material/Search';
 
 const rows = [
   {
@@ -309,15 +313,15 @@ export default function OrderTable() {
       </FormControl>
 
       <FormControl size="sm">
-        <FormLabel>Customer</FormLabel>
+        <FormLabel>Sources</FormLabel>
         <Select size="sm" placeholder="All">
           <Option value="all">All</Option>
-          <Option value="olivia">Olivia Rhye</Option>
-          <Option value="steve">Steve Hampton</Option>
-          <Option value="ciaran">Ciaran Murray</Option>
-          <Option value="marina">Marina Macdonald</Option>
-          <Option value="charles">Charles Fulton</Option>
-          <Option value="jay">Jay Hoper</Option>
+          <Option value="olivia">Account 1</Option>
+          <Option value="steve">Account 2</Option>
+          <Option value="ciaran">Account 3</Option>
+          <Option value="marina">Account 4</Option>
+          <Option value="charles">Account 5</Option>
+          <Option value="jay">Account 6</Option>
         </Select>
       </FormControl>
     </React.Fragment>
@@ -417,24 +421,7 @@ export default function OrderTable() {
           <thead>
             <tr>
               <th style={{ width: 48, textAlign: 'center', padding: '12px 6px' }}>
-                <Checkbox
-                  size="sm"
-                  indeterminate={
-                    selected.length > 0 && selected.length !== rows.length
-                  }
-                  checked={selected.length === rows.length}
-                  onChange={(event) => {
-                    setSelected(
-                      event.target.checked ? rows.map((row) => row.id) : [],
-                    );
-                  }}
-                  color={
-                    selected.length > 0 || selected.length === rows.length
-                      ? 'primary'
-                      : undefined
-                  }
-                  sx={{ verticalAlign: 'text-bottom' }}
-                />
+                
               </th>
               <th style={{ width: 120, padding: '12px 6px' }}>
                 <Link
@@ -452,12 +439,12 @@ export default function OrderTable() {
                     },
                   }}
                 >
-                  Invoice
+                  Pocket
                 </Link>
               </th>
-              <th style={{ width: 140, padding: '12px 6px' }}>Date</th>
+              <th style={{ width: 140, padding: '12px 6px' }}>Deadline</th>
               <th style={{ width: 140, padding: '12px 6px' }}>Status</th>
-              <th style={{ width: 240, padding: '12px 6px' }}>Customer</th>
+              <th style={{ width: 240, padding: '12px 6px' }}>Info</th>
               <th style={{ width: 140, padding: '12px 6px' }}> </th>
             </tr>
           </thead>
@@ -465,63 +452,31 @@ export default function OrderTable() {
             {stableSort(rows, getComparator(order, 'id')).map((row) => (
               <tr key={row.id}>
                 <td style={{ textAlign: 'center', width: 120 }}>
-                  <Checkbox
-                    size="sm"
-                    checked={selected.includes(row.id)}
-                    color={selected.includes(row.id) ? 'primary' : undefined}
-                    onChange={(event) => {
-                      setSelected((ids) =>
-                        event.target.checked
-                          ? ids.concat(row.id)
-                          : ids.filter((itemId) => itemId !== row.id),
-                      );
-                    }}
-                    slotProps={{ checkbox: { sx: { textAlign: 'left' } } }}
-                    sx={{ verticalAlign: 'text-bottom' }}
-                  />
+                  <DragIndicatorIcon />
                 </td>
                 <td>
                   <Typography level="body-xs">{row.id}</Typography>
                 </td>
                 <td>
+                  <Box sx={{display: "flex", gap: 2, alignItems: 'center'}}>
                   <Typography level="body-xs">{row.date}</Typography>
+                    <CircularProgress determinate color="danger" value={10} />
+                  </Box>
                 </td>
                 <td>
-                  <Chip
-                    variant="soft"
-                    size="sm"
-                    startDecorator={
-                      {
-                        Paid: <CheckRoundedIcon />,
-                        Refunded: <AutorenewRoundedIcon />,
-                        Cancelled: <BlockIcon />,
-                      }[row.status]
-                    }
-                    color={
-                      {
-                        Paid: 'success',
-                        Refunded: 'neutral',
-                        Cancelled: 'danger',
-                      }[row.status] as ColorPaletteProp
-                    }
-                  >
-                    {row.status}
-                  </Chip>
+                  <CircularProgress determinate value={25} />
                 </td>
                 <td>
                   <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                    <Avatar size="sm">{row.customer.initial}</Avatar>
+                    <AccountBalanceWallet />
                     <div>
-                      <Typography level="body-xs">{row.customer.name}</Typography>
-                      <Typography level="body-xs">{row.customer.email}</Typography>
+                      <Typography level="body-xs">Sources funding this pocket</Typography>
+                      <Typography level="body-xs">Short note about this pocket</Typography>
                     </div>
                   </Box>
                 </td>
                 <td>
-                  <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-                    <Link level="body-xs" component="button">
-                      Download
-                    </Link>
+                  <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', justifyContent: "flex-end" }}>
                     <RowMenu />
                   </Box>
                 </td>
@@ -530,49 +485,7 @@ export default function OrderTable() {
           </tbody>
         </Table>
       </Sheet>
-      <Box
-        className="Pagination-laptopUp"
-        sx={{
-          pt: 2,
-          gap: 1,
-          [`& .${iconButtonClasses.root}`]: { borderRadius: '50%' },
-          display: {
-            xs: 'none',
-            md: 'flex',
-          },
-        }}
-      >
-        <Button
-          size="sm"
-          variant="outlined"
-          color="neutral"
-          startDecorator={<KeyboardArrowLeftIcon />}
-        >
-          Previous
-        </Button>
-
-        <Box sx={{ flex: 1 }} />
-        {['1', '2', '3', '…', '8', '9', '10'].map((page) => (
-          <IconButton
-            key={page}
-            size="sm"
-            variant={Number(page) ? 'outlined' : 'plain'}
-            color="neutral"
-          >
-            {page}
-          </IconButton>
-        ))}
-        <Box sx={{ flex: 1 }} />
-
-        <Button
-          size="sm"
-          variant="outlined"
-          color="neutral"
-          endDecorator={<KeyboardArrowRightIcon />}
-        >
-          Next
-        </Button>
-      </Box>
+      
     </React.Fragment>
   );
 }

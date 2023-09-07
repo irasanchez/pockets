@@ -1,27 +1,32 @@
 import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
-import CssBaseline from '@mui/joy/CssBaseline';
+import { useGetAccessUrl } from './utils';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Breadcrumbs from '@mui/joy/Breadcrumbs';
+import ColorSchemeToggle from './components/ColorSchemeToggle';
+import CssBaseline from '@mui/joy/CssBaseline';
+import FirstSidebar from './components/FirstSidebar';
+import Header from './components/Header';
+import Home from './components/Home';
 import Link from '@mui/joy/Link';
+import OrderList from './components/OrderList';
+import OrderTable from './components/OrderTable';
+import SecondSidebar from './components/SecondSidebar';
+import Settings from "./components/Settings";
 import Typography from '@mui/joy/Typography';
+import useScript from './useScript';
+
 // icons
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Add from '@mui/icons-material/Add';
-import useScript from './useScript';
-import FirstSidebar from './components/FirstSidebar';
-import SecondSidebar from './components/SecondSidebar';
-import OrderTable from './components/OrderTable';
-import OrderList from './components/OrderList';
-import Header from './components/Header';
-import ColorSchemeToggle from './components/ColorSchemeToggle';
 
 const useEnhancedEffect =
   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
 export default function JoyOrderDashboardTemplate() {
+
   const status = useScript(`https://unpkg.com/feather-icons`);
 
   useEnhancedEffect(() => {
@@ -32,6 +37,8 @@ export default function JoyOrderDashboardTemplate() {
       feather.replace();
     }
   }, [status]);
+
+  const accessUrl = useGetAccessUrl();
 
   return (
     <CssVarsProvider disableTransitionOnChange>
@@ -66,29 +73,7 @@ export default function JoyOrderDashboardTemplate() {
             gap: 1,
           }}
         >
-          
-          <Box
-            sx={{
-              display: 'flex',
-              my: 1,
-              gap: 1,
-              flexDirection: { xs: 'column', sm: 'row' },
-              alignItems: { xs: 'start', sm: 'center' },
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Typography level="h2">Pockets</Typography>
-            <Button
-              color="primary"
-              startDecorator={<Add />}
-              size="sm"
-            >
-              Add pocket
-            </Button>
-          </Box>
-          <OrderTable />
-          <OrderList />
+          <Home />
         </Box>
       </Box>
     </CssVarsProvider>
