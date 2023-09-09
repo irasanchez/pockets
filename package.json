@@ -6,9 +6,19 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run dev"
   },
   "dependencies": {
+    "@capacitor/android": "5.3.0",
+    "@capacitor/app": "5.0.6",
+    "@capacitor/cli": "5.3.0",
+    "@capacitor/core": "5.3.0",
+    "@capacitor/haptics": "5.0.6",
+    "@capacitor/ios": "5.3.0",
+    "@capacitor/keyboard": "5.0.6",
+    "@capacitor/status-bar": "5.0.6",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.0.8",
