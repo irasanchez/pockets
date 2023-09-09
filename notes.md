@@ -1,5 +1,14 @@
+## I'd like the app to feel native to the device it's being used on. 
+here is an example of using MUI to make a switch look like this iOS styling https://codesandbox.io/s/ios-switch-material-ui-styled-components-forked-d3f3c8?file=/src/Switch.jsx
+
 ## landing page
 use this template as a starting point https://codesandbox.io/s/pyfc7y?file=/App.tsx
+
+## plaid api 
+can't implement the ability to make transfers until launching and getting production approval
+
+can use this as a reference then https://github.com/plaid/pattern-transfers/blob/master/client/src/components/TransferForm.tsx
+
 
 ## simple fin bridge api notes
 - the api docs really stress sanitizing the data at various points. make sure to implement this to honor the people -- including myself -- who use this. 

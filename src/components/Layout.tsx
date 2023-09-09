@@ -19,11 +19,11 @@ import {useScript, useGetAccessUrl} from "../utils";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Add from '@mui/icons-material/Add';
-
+import {Outlet} from "react-router-dom";
 const useEnhancedEffect =
   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
-export default function Layout({children}) {
+export default function Layout() {
 
   const status = useScript(`https://unpkg.com/feather-icons`);
 
@@ -71,7 +71,7 @@ export default function Layout({children}) {
             gap: 1,
           }}
         >
-          {children}
+          <Outlet/>
         </Box>
       </Box>
     </CssVarsProvider>

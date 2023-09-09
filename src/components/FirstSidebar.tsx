@@ -12,6 +12,7 @@ import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 import DynamicFeedRoundedIcon from '@mui/icons-material/DynamicFeedRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import SupportRoundedIcon from '@mui/icons-material/SupportRounded';
+import { Link } from "react-router-dom";
 
 import MuiLogo from './MuiLogo';
 import { openSidebar } from '../utils';
@@ -51,7 +52,9 @@ export default function FirstSidebar() {
           },
         }}
       />
-      <MuiLogo />
+      <Link to="/">
+        <MuiLogo />
+      </Link>
       <List size="sm" sx={{ '--ListItem-radius': '6px', '--List-gap': '8px' }}>
         <ListItem>
           <ListItemButton>
@@ -84,7 +87,9 @@ export default function FirstSidebar() {
         </ListItem>
         <ListItem>
           <ListItemButton>
-            <SettingsRoundedIcon />
+            <Link to="/settings">
+              <SettingsRoundedIcon />
+            </Link>
           </ListItemButton>
         </ListItem>
       </List>

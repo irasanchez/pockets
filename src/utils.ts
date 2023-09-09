@@ -1,5 +1,11 @@
 import * as React from "react"
 import { useEffect, useState } from "react";
+import {
+  usePlaidLink,
+  PlaidLinkOptions,
+  PlaidLinkOnSuccess,
+} from 'react-plaid-link';
+
 
 export type UseScriptStatus = 'idle' | 'loading' | 'ready' | 'error';
 
@@ -156,3 +162,18 @@ export const useGetAccessUrl = () => {
 
   return accessUrl;
 };
+
+
+// The usePlaidLink hook manages Plaid Link creation
+// It does not return a destroy function;
+// instead, on unmount it automatically destroys the Link instance
+const config: PlaidLinkOptions = {
+  onSuccess: (public_token, metadata) => { console.log("set a success notification")},
+  onExit: (err, metadata) => {},
+  onEvent: (eventName, metadata) => {},
+  token: 'GENERATED_LINK_TOKEN',
+  //required for OAuth; if not using OAuth, set to null or omit:
+  receivedRedirectUri: window.location.href,
+};
+
+// const { open, exit, ready } = usePlaidLink(config);
