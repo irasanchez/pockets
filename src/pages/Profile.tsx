@@ -2,24 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, useIonRouter } from '@ionic/react';
 import firebase from '../firebase';
 
+interface User {
+  name: string;
+  email: string;
+  // You may add more fields based on your Users' collection
+}
+
 const Profile: React.FC = () => {
-  const [user, setUser] = useState(null);
-  const router = useIonRouter();  // Get Ionic Router instance
-  const userid = router.params.userid; // Get userid parameter from URL
+  
+  const [user, setUser] = useState<User|null>(null);
+  
+  const router = useIonRouter();
+  const userid: string = router.params.userid as string; // Extract userid from URL
 
   useEffect(() => {
-    const fetchData = async () => {
-      const db = firebase.firestore();
+   // Check if userid is defined
+    if(userid) {
+      const fetchData = async () => {
+        const db = firebase.firestore();
       
-      const userRef = db.collection('users').doc(firebase.auth().currentUser.uid);  // Replace 'users' with your users collection
-      const doc = await userRef.get();
-      if (doc.exists) {
-        setUser(doc.data());
+        const userRef = db.collection('users').doc(userid); 
+        const doc = await userRef.get();
+        if (doc.exists) {
+          setUser(doc.data() as User);
+        }
       }
-    }
-
-    fetchData();
-  }, []);
+    
+      fetchData();
+    }  
+}, [userid]);
 
   return (
     <IonPage>
@@ -31,7 +42,7 @@ const Profile: React.FC = () => {
       <IonContent>
         {user && 
           <>
-            <h1>{user.name}</h1> {/* Replace these fields with the actual fields of your user document */}
+            <h1>{user.name}</h1> 
             <p>{user.email}</p>
           </>
         }
