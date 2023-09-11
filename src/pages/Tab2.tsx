@@ -1,12 +1,23 @@
 // @ts-nocheck
+import React, { useState, useEffect } from 'react';
 import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import CircularProgress from "@mui/joy/CircularProgress"
 import { ellipsisHorizontalCircleSharp } from 'ionicons/icons';
+import firebase from '../firebase';  // path to your firebase config file
 
 import './Tab1.css';
 
 const Tab2: React.FC = () => {
+  const [pockets, setPockets] = useState([]); // Initialize state
   
+  useEffect(() => { // Fetch data on component mount
+    const fetchData = async () => {
+      const db = firebase.firestore();
+      const data = await db.collection("YOUR_COLLECTION_NAME").get();
+      setPockets(data.docs.map(doc => ({ ...doc.data(), id: doc.id})));
+    }
+    fetchData();
+  }, []);
   return (
     <IonPage>
       <IonHeader collapse="condense">
@@ -17,6 +28,7 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent >
+         {pockets.map(pocket => (
         <IonCard color="primary">
           <IonCardHeader>
             <IonGrid fixed>
