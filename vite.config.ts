@@ -1,33 +1,16 @@
-import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
-
-let faviconURL = '/favicon.svg'
-
-
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
-      includeAssets: [faviconURL],
-      manifest: {
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: faviconURL,
-            sizes: '512x512',
-            type: 'image/svg+xml',
-            purpose: 'any maskable'
-          },
-          {
-            src: faviconURL,
-            sizes: '512x512',
-            type: 'image/png',
-          }
-        ]
-      },
-    })
-  ]
+    legacy()
+  ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+  }
 })

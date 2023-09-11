@@ -1,19 +1,19 @@
 {
-  "name": "pwa-vite-react-boilerplate",
+  "name": "pockets",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "ionic:build": "npm run build",
-    "ionic:serve": "npm run dev"
+    "test.e2e": "cypress run",
+    "test.unit": "vitest",
+    "lint": "eslint"
   },
   "dependencies": {
     "@capacitor/android": "5.3.0",
     "@capacitor/app": "5.0.6",
-    "@capacitor/cli": "5.3.0",
     "@capacitor/core": "5.3.0",
     "@capacitor/haptics": "5.0.6",
     "@capacitor/ios": "5.3.0",
@@ -21,23 +21,34 @@
     "@capacitor/status-bar": "5.0.6",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/inter": "^5.0.8",
-    "@mui/base": "^5.0.0-beta.12",
-    "@mui/icons-material": "^5.14.6",
-    "@mui/joy": "5.0.0-beta.3",
-    "@mui/material": "^5.14.6",
+    "@ionic/react": "^7.0.0",
+    "@ionic/react-router": "^7.0.0",
+    "@mui/joy": "5.0.0-beta.5",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "ionicons": "^7.0.0",
+    "parse": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.0.11",
-    "react-plaid-link": "^3.4.0",
-    "react-router-dom": "^6.15.0"
+    "react-router": "^5.3.4",
+    "react-router-dom": "^5.3.4"
   },
   "devDependencies": {
-    "@types/react": "^18.2.17",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.4",
+    "@capacitor/cli": "5.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-legacy": "^4.0.2",
+    "@vitejs/plugin-react": "^4.0.1",
+    "cypress": "^12.7.0",
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2",
+    "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.9",
-    "vite-plugin-pwa": "^0.16.3"
-  }
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  },
+  "description": "An Ionic project"
 }

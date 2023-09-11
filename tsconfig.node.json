@@ -3,10 +3,7 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "paths": {
-      "@mui/material": ["./node_modules/@mui/joy"]
-    }
+    "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
 }
