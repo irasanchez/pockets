@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonModal, IonButton, useIonViewWillEnter, useIonRouter } from '@ionic/react';
 import CircularProgress from "@mui/joy/CircularProgress"
 import { ellipsisHorizontalCircleSharp } from 'ionicons/icons';
 import firebase from '../firebase';  // path to your firebase config file
@@ -8,7 +8,10 @@ import firebase from '../firebase';  // path to your firebase config file
 import './Tab1.css';
 
 const Tab2: React.FC = () => {
-  const [pockets, setPockets] = useState([]); // Initialize state
+  const [pockets, setPockets] = useState([]); 
+  const [showModal, setShowModal] = useState(false);  // state for controlling modal visibility
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
   
   useEffect(() => { // Fetch data on component mount
     const fetchData = async () => {
@@ -18,6 +21,9 @@ const Tab2: React.FC = () => {
     }
     fetchData();
   }, []);
+
+    const router = useIonRouter();
+
   return (
     <IonPage>
       <IonHeader collapse="condense">
@@ -48,8 +54,16 @@ const Tab2: React.FC = () => {
             $45/$100 | 3 days left
           </IonCardContent>
         </IonCard>
+))}
 
-
+        {pockets.map(pocket =>
+          <Route path={`/pockets/${pocket.id}`} render={() =>
+            <IonModal isOpen={true} onDidDismiss={() => router.push('/pockets')}>
+              {/* Insert PocketDetail component, or any other content you want to display in the modal */}
+              {/* In the PocketDetail component, you can use router.params.id to get the selected pocket id */}
+            </IonModal>
+          }/>
+        )}
       </IonContent>
     </IonPage>
   );
