@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonModal, IonButton, useIonViewWillEnter, useIonRouter } from '@ionic/react';
+import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonModal, IonButton, useIonViewWillEnter, useIonRouter, IonButtons } from '@ionic/react';
 import CircularProgress from "@mui/joy/CircularProgress"
-import { ellipsisHorizontalCircleSharp } from 'ionicons/icons';
+import { ellipsisHorizontalCircleSharp, personCircle } from 'ionicons/icons';
 import firebase from '../firebase';  // path to your firebase config file
 
 import './Tab1.css';
@@ -31,6 +31,11 @@ const Tab2: React.FC = () => {
       </IonToolbar>
         <IonToolbar>
           <IonTitle size="large">Pockets</IonTitle>
+          <IonButtons slot="end">
+            <IonButton routerLink="/profile">  {/* This will link to the user profile page once it's created */}
+              <IonIcon icon={personCircle} /> {/* Adjust the icon as needed */}
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent >
