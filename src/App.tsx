@@ -60,7 +60,7 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
-          <Route path="/profile/:userid" render={()=><Profile />)}
+          <Route path="/profile/:userid" render={()=><Profile />}/>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">

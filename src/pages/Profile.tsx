@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, useIonRouter } from '@ionic/react';
-import firebase from '../firebase';
+// import firebase from '../firebase';
 
 interface User {
   name: string;
@@ -15,22 +15,22 @@ const Profile: React.FC = () => {
   const router = useIonRouter();
   const userid: string = router.params.userid as string; // Extract userid from URL
 
-  useEffect(() => {
-   // Check if userid is defined
-    if(userid) {
-      const fetchData = async () => {
-        const db = firebase.firestore();
+//   useEffect(() => {
+//    // Check if userid is defined
+//     if(userid) {
+//       const fetchData = async () => {
+//         const db = firebase.firestore();
       
-        const userRef = db.collection('users').doc(userid); 
-        const doc = await userRef.get();
-        if (doc.exists) {
-          setUser(doc.data() as User);
-        }
-      }
+//         const userRef = db.collection('users').doc(userid); 
+//         const doc = await userRef.get();
+//         if (doc.exists) {
+//           setUser(doc.data() as User);
+//         }
+//       }
     
-      fetchData();
-    }  
-}, [userid]);
+//       fetchData();
+//     }  
+// }, [userid]);
 
   return (
     <IonPage>
