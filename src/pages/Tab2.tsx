@@ -40,14 +40,14 @@ const Tab2: React.FC = () => {
   const router = useIonRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const openModal = (pocket: Pocket) => {
-    router.push(`/pockets/${pocket.id}`);
+    router.push(`/pockets/${pocket.name}`);
     setModalOpen(true);
   };
   const toggleJiggle = () => setJiggle(!jiggle);
   const handleModalClose = () => {
     setModalOpen(false); // Close the modal
     setTimeout(() => {
-      router.push(`/tab2`);
+      router.push(`/pockets`);
       // Trigger the page route back after the animation
     }, 500); // Adjust the delay time as needed
   };
@@ -67,7 +67,7 @@ const Tab2: React.FC = () => {
 
   const Cards: React.FC = () => (
     pockets.map((pocket: Pocket) => (
-      <div onClick={() => openModal(pocket)} key={pocket.id}>
+      <div onClick={() => openModal(pocket)} key={pocket.name}>
         <CardAnimation>
           <IonCard color="primary">
             <IonCardHeader>
@@ -109,8 +109,8 @@ const Tab2: React.FC = () => {
       <IonContent>
         <Cards />
         {pockets.map((pocket: Pocket) => (
-          <Route path={`/pockets/${pocket.id}`} key={pocket.id}>
-            <IonModal isOpen={router.routeInfo.pathname === `/pockets/${pocket.id}`}>
+          <Route path={`/pockets/${pocket.name}`} key={pocket.name}>
+            <IonModal isOpen={router.routeInfo.pathname === `/pockets/${pocket.name}`}>
               <h1>Hello World</h1>
               <IonButton onClick={handleModalClose}>Close Modal</IonButton>
             </IonModal>
