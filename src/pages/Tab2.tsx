@@ -1,74 +1,86 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react';
-import { IonGrid, IonCol, IonRow, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonIcon, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonModal, IonButton, useIonViewWillEnter, useIonRouter, IonButtons } from '@ionic/react';
-import CircularProgress from "@mui/joy/CircularProgress"
-import { ellipsisHorizontalCircleSharp, personCircle } from 'ionicons/icons';
-import firebase from '../firebase';  // path to your firebase config file
+import React, { useState, useEffect, ReactNode } from "react";
+import { IonGrid, IonCol, IonRow, IonContent, IonButton, IonHeader, IonIcon, IonPage, IonToolbar, IonCard, IonCardHeader, IonIcon, IonCardContent, IonCardTitle, IonModal, IonButtons, useIonRouter, IonButton, IonButtons } from "@ionic/react";
+import CircularProgress from "@mui/joy/CircularProgress";
+import { ellipsisHorizontalCircleSharp, add } from "ionicons/icons";
+import "./Tab1.css";
+import usePockets from "../hooks/usePockets";
 
-import './Tab1.css';
+// Pockets type definition (update this based on your data structure)
+interface Pocket {
+  id: string;
+  // other Pocket properties go here
+}
+// Props type for Modal component
+interface ModalProps {
+  showModal: boolean;
+  closeModal: () => void;
+}
+// Props type for CardAnimation component
+interface CardAnimationProps {
+  children: ReactNode; 
+}
 
 const Tab2: React.FC = () => {
-  const [pockets, setPockets] = useState([]); 
-  const [showModal, setShowModal] = useState(false);  // state for controlling modal visibility
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
-  
-  useEffect(() => { // Fetch data on component mount
-    const fetchData = async () => {
-      const db = firebase.firestore();
-      const data = await db.collection("YOUR_COLLECTION_NAME").get();
-      setPockets(data.docs.map(doc => ({ ...doc.data(), id: doc.id})));
-    }
-    fetchData();
-  }, []);
+  const pockets = usePockets();
+  const [showModal, setShowModal] = useState<boolean>(false); 
+  const [jiggle, setJiggle] = useState<boolean>(false);
 
-    const router = useIonRouter();
+  const openModal = (pocket: Pocket) => {
+    router.push(`/pockets/${pocket.id}`);
+    setShowModal(true);
+  };
+  const toggleJiggle = () => setJiggle((prevState) => !prevState);
+
+  const CardAnimation: React.FC<CardAnimationProps> = ({ children }) => (
+    <CreateAnimation
+      duration={jiggle ? 1000 : 0}
+      fromTo={[
+        { property: "transform", fromValue: "translateX(0px)", toValue: "translateX(-10px)" },
+        { property: "transform", fromValue: "translateX(-10px)", toValue: "translateX(10px)" },
+      ]}
+      easing="ease-out"
+    >
+      {children}
+    </CreateAnimation>
+  );
+
+  const Cards: React.FC = () => (
+    pockets.map((pocket: Pocket, index: number) => (
+      <div onClick={() => openModal(pocket)} key={pocket.id}>
+        <CardAnimation>
+          <IonCard color="primary">
+            // IonCardContent...
+          </IonCard>
+        </CardAnimation>
+      </div>
+    ))
+  );
 
   return (
     <IonPage>
       <IonHeader collapse="condense">
-      <IonToolbar>
-      </IonToolbar>
+        <IonToolbar></IonToolbar>
         <IonToolbar>
           <IonTitle size="large">Pockets</IonTitle>
           <IonButtons slot="end">
-            <IonButton routerLink="/profile">  {/* This will link to the user profile page once it's created */}
-              <IonIcon icon={personCircle} /> {/* Adjust the icon as needed */}
+            <IonButton onClick={toggleJiggle}>Select</IonButton>
+            <IonButton>
+              <IonIcon icon={add} /> {/* Adjust the icon as needed */}
             </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent >
-         {pockets.map(pocket => (
-        <IonCard color="primary">
-          <IonCardHeader>
-            <IonGrid fixed>
-              <IonRow class="ion-justify-content-between">
-                <IonCol size="1">
-                  <CircularProgress thickness={18.5} variant="solid" value={25} determinate size="lg" />
-                </IonCol>
-                <IonCol size="1" style={{ marginRight: "2vw" }}>
-                  <IonIcon aria-hidden="true" icon={ellipsisHorizontalCircleSharp} size="large" />
-                </IonCol>
-              </IonRow>
-            </IonGrid>
-
-          </IonCardHeader>
-          <IonCardContent>
-            <IonCardTitle>Pocket Name</IonCardTitle>
-            $45/$100 | 3 days left
-          </IonCardContent>
-        </IonCard>
-))}
-
-        {pockets.map(pocket =>
-          <Route path={`/pockets/${pocket.id}`} render={() =>
-            <IonModal isOpen={true} onDidDismiss={() => router.push('/pockets')}>
-              {/* Insert PocketDetail component, or any other content you want to display in the modal */}
-              {/* In the PocketDetail component, you can use router.params.id to get the selected pocket id */}
+      <IonContent>
+        <Cards />
+        {pockets.map((pocket: Pocket) => (
+          <Route path={`/pockets/${pocket.id}`} key={pocket.id}>
+            <IonModal isOpen={showModal}>
+              <h1>Hello World</h1>
+              <IonButton onClick={closeModal}>Close Modal</IonButton>
             </IonModal>
-          }/>
-        )}
+          </Route>
+        ))}
       </IonContent>
     </IonPage>
   );
