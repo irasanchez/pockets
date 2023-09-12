@@ -20,7 +20,7 @@ import {
   useIonRouter,
   CreateAnimation
 } from "@ionic/react";
-import {  Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import CircularProgress from "@mui/joy/CircularProgress";
 import { ellipsisHorizontalCircleSharp, add } from "ionicons/icons";
 import "./Tab1.css";
@@ -38,16 +38,23 @@ const Tab2: React.FC = () => {
   const pockets = usePockets();
   const [jiggle, setJiggle] = useState<boolean>(false);
   const router = useIonRouter();
-
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const openModal = (pocket: Pocket) => {
     router.push(`/pockets/${pocket.id}`);
+    setModalOpen(true);
   };
   const toggleJiggle = () => setJiggle(!jiggle);
-
+  const handleModalClose = () => {
+    setModalOpen(false); // Close the modal
+    setTimeout(() => {
+      router.push(`/tab2`);
+      // Trigger the page route back after the animation
+    }, 500); // Adjust the delay time as needed
+  };
   const CardAnimation: React.FC<CardAnimationProps> = ({ children }) => (
-    // You need to define CreateAnimation component or use the one from library
     <CreateAnimation
       duration={jiggle ? 1000 : 0}
+      // ierations={jiggle? Infinity : 1}
       fromTo={[
         { property: "transform", fromValue: "translateX(0px)", toValue: "translateX(-10px)" },
         { property: "transform", fromValue: "translateX(-10px)", toValue: "translateX(10px)" }
@@ -105,7 +112,7 @@ const Tab2: React.FC = () => {
           <Route path={`/pockets/${pocket.id}`} key={pocket.id}>
             <IonModal isOpen={router.routeInfo.pathname === `/pockets/${pocket.id}`}>
               <h1>Hello World</h1>
-              <IonButton onClick={() => router.goBack()}>Close Modal</IonButton>
+              <IonButton onClick={handleModalClose}>Close Modal</IonButton>
             </IonModal>
           </Route>
         ))}

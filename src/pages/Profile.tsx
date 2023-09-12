@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, useIonRouter } from '@ionic/react';
+import { useParams } from "react-router-dom";
+
 // import firebase from '../firebase';
 
 interface User {
@@ -12,8 +14,9 @@ const Profile: React.FC = () => {
   
   const [user, setUser] = useState<User|null>(null);
   
-  const router = useIonRouter();
-  const userid: string = router.params.userid as string; // Extract userid from URL
+  // const router = useIonRouter();
+  const params = useParams() 
+  const userid: string = params.userid as string; // Extract userid from URL
 
 //   useEffect(() => {
 //    // Check if userid is defined
