@@ -35,6 +35,7 @@ interface CardAnimationProps {
 }
 
 const Tab2: React.FC = () => {
+  const colorOptions = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'dark', 'medium', 'light'];
   const pockets = usePockets();
   const [jiggle, setJiggle] = useState<boolean>(false);
   const router = useIonRouter();
@@ -66,10 +67,10 @@ const Tab2: React.FC = () => {
   );
 
   const Cards: React.FC = () => (
-    pockets.map((pocket: Pocket) => (
+    pockets.map((pocket: Pocket, index: number) => (
       <div onClick={() => openModal(pocket)} key={pocket.name}>
         <CardAnimation>
-          <IonCard color="primary">
+          <IonCard color={`${colorOptions[index % colorOptions.length]}`}>
             <IonCardHeader>
               <IonGrid fixed>
                 <IonRow class="ion-justify-content-between">
