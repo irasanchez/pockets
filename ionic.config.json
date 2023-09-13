@@ -1,7 +1,0 @@
-{
-  "name": "pockets",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite"
-}
