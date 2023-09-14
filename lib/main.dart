@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'news_tab.dart';
 import './profile_tab.dart';
@@ -11,7 +12,12 @@ import './settings_tab.dart';
 import './songs_tab.dart';
 import './widgets.dart';
 
-void main() => runApp(const MyAdaptingApp());
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyAdaptingApp());
+}
 
 class MyAdaptingApp extends StatelessWidget {
   const MyAdaptingApp({super.key});

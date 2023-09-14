@@ -5,10 +5,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'song_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
+import 'pocket.dart';
 
 class SongsTab extends StatefulWidget {
   static const title = 'Pockets';
@@ -25,21 +28,44 @@ class SongsTab extends StatefulWidget {
 
 class _SongsTabState extends State<SongsTab> {
   static const _itemsLength = 50;
-
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
   late List<MaterialColor> colors;
   late List<String> songNames;
+  List<Pocket> pockets = []; // Define a list to hold the retrieved pockets
 
   @override
   void initState() {
-    _setData();
+    _fetchPockets(); // Call the method to fetch the pockets from Firebase
     super.initState();
   }
 
   void _setData() {
     colors = getRandomColors(_itemsLength);
     songNames = getRandomNames(_itemsLength);
+  }
+
+  Future<void> _fetchPockets() async {
+    try {
+      final pocketsSnapshot =
+          await FirebaseFirestore.instance.collection('pockets').get();
+      setState(() {
+        pockets = pocketsSnapshot.docs
+            .map((doc) => Pocket.fromSnapshot(doc))
+            .toList();
+      });
+    } catch (e) {
+      setState(() {
+        final snackBar = SnackBar(
+            content: const Text('Yay! A SnackBar!'),
+            action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () {
+                // Some code to undo the change.
+              },
+            ),
+      });
+    }
   }
 
   Future<void> _refreshData() {
@@ -50,7 +76,9 @@ class _SongsTabState extends State<SongsTab> {
     );
   }
 
-  Widget _listBuilder(BuildContext context, int index) {
+  Widget _listBuilder(BuildContext context, int index, Pocket pocket) {
+    if (index >= pockets.length) return Container();
+    final pocket = pockets[index];
     if (index >= _itemsLength) return Container();
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
@@ -95,6 +123,8 @@ class _SongsTabState extends State<SongsTab> {
     // purposes.
     WidgetsBinding.instance.reassembleApplication();
   }
+
+
 
   // ===========================================================================
   // Non-shared code below because:
