@@ -7,20 +7,20 @@ import 'package:flutter/material.dart';
 
 import 'widgets.dart';
 
-/// Page shown when a card in the songs tab is tapped.
+/// Page shown when a card in the pockets tab is tapped.
 ///
 /// On Android, this page sits at the top of your app. On iOS, this page is on
-/// top of the songs tab's content but is below the tab bar itself.
-class SongDetailTab extends StatelessWidget {
-  const SongDetailTab({
+/// top of the pockets tab's content but is below the tab bar itself.
+class PocketDetailTab extends StatelessWidget {
+  const PocketDetailTab({
     required this.id,
-    required this.song,
+    required this.pocket,
     required this.color,
     super.key,
   });
 
   final int id;
-  final String song;
+  final String pocket;
   final Color color;
 
   Widget _buildBody() {
@@ -33,19 +33,19 @@ class SongDetailTab extends StatelessWidget {
         children: [
           Hero(
             tag: id,
-            child: HeroAnimatingSongCard(
-              song: song,
+            child: HeroAnimatingPocketCard(
+              pocket: pocket,
               color: color,
               heroAnimation: const AlwaysStoppedAnimation(1),
             ),
             // This app uses a flightShuttleBuilder to specify the exact widget
             // to build while the hero transition is mid-flight.
             //
-            // It could either be specified here or in SongsTab.
+            // It could either be specified here or in PocketsTab.
             flightShuttleBuilder: (context, animation, flightDirection,
                 fromHeroContext, toHeroContext) {
-              return HeroAnimatingSongCard(
-                song: song,
+              return HeroAnimatingPocketCard(
+                pocket: pocket,
                 color: color,
                 heroAnimation: animation,
               );
@@ -69,7 +69,7 @@ class SongDetailTab extends StatelessWidget {
                       ),
                     ),
                   ),
-                _ => const SongPlaceholderTile(),
+                _ => const PocketPlaceholderTile(),
               },
             ),
           ),
@@ -84,7 +84,7 @@ class SongDetailTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(song)),
+      appBar: AppBar(title: Text(pocket)),
       body: _buildBody(),
     );
   }
@@ -92,8 +92,8 @@ class SongDetailTab extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(song),
-        previousPageTitle: 'Songs',
+        middle: Text(pocket),
+        previousPageTitle: 'Pockets',
       ),
       child: _buildBody(),
     );

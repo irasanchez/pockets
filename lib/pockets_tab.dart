@@ -8,30 +8,30 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
-import 'song_detail_tab.dart';
+import 'pocket_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 import 'pocket.dart';
 
-class SongsTab extends StatefulWidget {
+class PocketsTab extends StatefulWidget {
   static const title = 'Pockets';
   static const androidIcon = Icon(Icons.music_note);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const SongsTab({super.key, this.androidDrawer});
+  const PocketsTab({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 
   @override
-  State<SongsTab> createState() => _SongsTabState();
+  State<PocketsTab> createState() => _PocketsTabState();
 }
 
-class _SongsTabState extends State<SongsTab> {
+class _PocketsTabState extends State<PocketsTab> {
   static const _itemsLength = 50;
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
   late List<MaterialColor> colors;
-  late List<String> songNames;
+  late List<String> pocketNames;
   List<Pocket> pockets = []; // Define a list to hold the retrieved pockets
 
   @override
@@ -42,7 +42,7 @@ class _SongsTabState extends State<SongsTab> {
 
   void _setData() {
     colors = getRandomColors(_itemsLength);
-    songNames = getRandomNames(_itemsLength);
+    pocketNames = getRandomNames(_itemsLength);
   }
 
   Future<void> _fetchPockets() async {
@@ -70,7 +70,6 @@ class _SongsTabState extends State<SongsTab> {
   Widget _listBuilder(BuildContext context, int index, Pocket pocket) {
     if (index >= pockets.length) return Container();
     final pocket = pockets[index];
-    if (index >= _itemsLength) return Container();
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
@@ -83,15 +82,15 @@ class _SongsTabState extends State<SongsTab> {
       bottom: false,
       child: Hero(
         tag: index,
-        child: HeroAnimatingSongCard(
-          song: songNames[index],
+        child: HeroAnimatingPocketCard(
+          pocket: pocket,
           color: color,
           heroAnimation: const AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
-              builder: (context) => SongDetailTab(
+              builder: (context) => PocketDetailTab(
                 id: index,
-                song: songNames[index],
+                pocket: pocket.name,
                 color: color,
               ),
             ),
@@ -131,7 +130,7 @@ class _SongsTabState extends State<SongsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(SongsTab.title),
+        title: const Text(PocketsTab.title),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),

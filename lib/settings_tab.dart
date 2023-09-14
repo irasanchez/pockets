@@ -55,14 +55,14 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
         ),
         ListTile(
-          title: const Text('Background song refresh'),
+          title: const Text('Background pocket refresh'),
           trailing: Switch.adaptive(
             value: switch4,
             onChanged: (value) => setState(() => switch4 = value),
           ),
         ),
         ListTile(
-          title: const Text('Recommend me songs based on my location'),
+          title: const Text('Recommend me pockets based on my location'),
           trailing: Switch.adaptive(
             value: switch5,
             onChanged: (value) => setState(() => switch5 = value),
