@@ -184,7 +184,7 @@ class HeroAnimatingPocketCard extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      pocket,
+                      pocket.name,
                       style: const TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.w500,

@@ -114,8 +114,6 @@ class _PocketsTabState extends State<PocketsTab> {
     WidgetsBinding.instance.reassembleApplication();
   }
 
-
-
   // ===========================================================================
   // Non-shared code below because:
   // - Android and iOS have different scaffolds
@@ -150,7 +148,9 @@ class _PocketsTabState extends State<PocketsTab> {
         child: ListView.builder(
           padding: const EdgeInsets.symmetric(vertical: 12),
           itemCount: _itemsLength,
-          itemBuilder: _listBuilder,
+          itemBuilder: (context, index) {
+            return _listBuilder(context, index, pockets[index]);
+          },
         ),
       ),
     );
@@ -175,8 +175,10 @@ class _PocketsTabState extends State<PocketsTab> {
             padding: const EdgeInsets.symmetric(vertical: 12),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                _listBuilder,
-                childCount: _itemsLength,
+                (context, index) {
+                  return _listBuilder(context, index, pockets[index]);
+                },
+                childCount: pockets.length,
               ),
             ),
           ),
