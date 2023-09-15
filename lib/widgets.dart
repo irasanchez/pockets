@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'pocket.dart';
+
 /// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
   const PlatformWidget({
@@ -144,7 +146,7 @@ class HeroAnimatingPocketCard extends StatelessWidget {
     super.key,
   });
 
-  final String pocket;
+  final Pocket pocket;
   final Color color;
   final Animation<double> heroAnimation;
   final VoidCallback? onPressed;
