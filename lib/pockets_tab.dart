@@ -90,7 +90,7 @@ class _PocketsTabState extends State<PocketsTab> {
             MaterialPageRoute(
               builder: (context) => PocketDetailTab(
                 id: index,
-                pocket: pocket.name,
+                pocket: pocket,
                 color: color,
               ),
             ),

@@ -5,6 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'pocket.dart';
 import 'widgets.dart';
 
 /// Page shown when a card in the pockets tab is tapped.
@@ -20,7 +21,7 @@ class PocketDetailTab extends StatelessWidget {
   });
 
   final int id;
-  final String pocket;
+  final Pocket pocket;
   final Color color;
 
   Widget _buildBody() {
@@ -84,7 +85,7 @@ class PocketDetailTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(pocket)),
+      appBar: AppBar(title: Text(pocket.name)),
       body: _buildBody(),
     );
   }
@@ -92,7 +93,7 @@ class PocketDetailTab extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(pocket),
+        middle: Text(pocket.name),
         previousPageTitle: 'Pockets',
       ),
       child: _buildBody(),
