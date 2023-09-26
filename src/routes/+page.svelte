@@ -1,364 +1,250 @@
-<script>
-	let hidden = true;
-
-	function toggleHidden() {
-		hidden = !hidden;
-	}
-</script>
-
-<section>
-	<div class="container px-4 mx-auto">
-		<nav class="flex justify-between items-center py-8">
-			<a class="text-gray-600 text-2xl leading-none" href="#">
-				<img class="h-8" src="mockup-assets/logos/shuffle-ux.svg" alt="" width="auto" />
-			</a>
-			<div class="lg:hidden">
-				<button
-					class="block navbar-burger text-gray-500 hover:text-gray-600 focus:outline-none"
-					on:click={toggleHidden}
-				>
-					<svg
-						class="h-4 w-4"
-						fill="currentColor "
-						viewbox="0 0 20 20"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<title>Mobile menu</title>
-						<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-					</svg>
-				</button>
-			</div>
-			<ul class="hidden lg:flex ml-auto mr-10 items-center w-auto space-x-12">
-				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">About</a></li> -->
-				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Company</a></li> -->
-				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Features</a></li> -->
-				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Testimonials</a></li> -->
-			</ul>
-			<!-- <a
-				class="hidden lg:block px-6 py-3 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded"
-				href="#">Contact Us</a
-			> -->
-		</nav>
-		<div class="flex items-center -mx-4 lg:my-10 flex-wrap-reverse lg:flex-wrap">
-			<div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-8 md:mb-0 flex-col items-center">
-				<form action="#" class="md:w-2/3 flex-col items-center">
-					<input
-						class="w-full py-3 pl-3 mb-4 bg-white border rounded-lg"
-						type="email"
-						placeholder="E-mail address"
-					/>
-					<input
-						class="w-full py-3 pl-3 mb-4 bg-white border rounded-lg"
-						type="password"
-						placeholder="Password"
-					/>
-					<button
-						class="w-full inline-block px-6 py-3 mb-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200"
-						>Get Started</button
-					>
-					<a class="text-sm text-gray-500 hover:underline" href="#">Forgot password?</a>
-					<a
-						class="flex items-center justify-center mt-4 mb-4 py-3 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-lg"
-						href="#"
-					>
-						<img class="w-5 h-5 mr-2" src="mockup-assets/socials/facebook.svg" alt="" />
-						<span class="text-sm font-bold text-gray-500">Sign in with Facebook</span>
-					</a>
-					<a
-						class="flex items-center justify-center py-3 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-lg"
-						href="#"
-					>
-						<img class="w-5 h-5 mr-2" src="mockup-assets/socials/twitter.svg" alt="" />
-						<span class="text-sm font-bold text-gray-500">Sign in with Twitter</span>
-					</a>
-				</form>
-			</div>
-			<div class="w-full md:w-1/2 px-4">
-				<img
-					class="object-cover w-full rounded-xl h-72 mb-8"
-					src="mockup-assets/images/gray-500-square.png"
-					alt=""
-				/>
-				<h2 class="mb-8 text-4xl lg:text-5xl font-bold max-w-sm">Command your finances.</h2>
-				<p class="mb-6 text-lg text-gray-500 leading-loose max-w-lg">
-					Pockets allows people to tell their money where and when to go. Make financial plans and
-					hit <span aria-hidden="true">▶️</span>.<span class="sr-only invisible">play</span>
-				</p>
-			</div>
-		</div>
-		<button
-			class="block mt-10 lg:mt-20 mx-auto w-16 h-16 p-5 rounded-full bg-gray-50 hover:bg-gray-100"
-		>
-			<svg
-				class="mx-auto text-gray-500"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewbox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-			</svg>
-		</button>
-	</div>
-	<div class="navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50" class:hidden>
-		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" />
-		<nav class="relative flex flex-col py-6 px-6 w-full h-full bg-white border-r overflow-y-auto">
-			<div class="flex items-center mb-8">
-				<a class="mr-auto text-2xl font-semibold leading-none" href="#">
-					<img class="h-8" src="mockup-assets/logos/shuffle-ux.svg" alt="" width="auto" />
-				</a>
-				<button class="navbar-close" on:click={toggleHidden}>
-					<svg
-						class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewbox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/>
-					</svg>
-				</button>
-			</div>
-			<div>
-				<ul>
-					<li class="mb-1">
-						<a
-							class="block p-4 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded"
-							href="#">About</a
-						>
-					</li>
-					<li class="mb-1">
-						<a
-							class="block p-4 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded"
-							href="#">Company</a
-						>
-					</li>
-					<li class="mb-1">
-						<a
-							class="block p-4 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded"
-							href="#">Services</a
-						>
-					</li>
-					<li class="mb-1">
-						<a
-							class="block p-4 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded"
-							href="#">Testimonials</a
-						>
-					</li>
-				</ul>
-			</div>
-			<div class="mt-auto">
-				<div class="pt-6">
-					<a
-						class="block px-6 py-2 mb-2 text-sm text-center text-gray-500 hover:text-gray-600 font-bold leading-loose border border-gray-100 hover:border-gray-200 rounded"
-						href="#">Contact Us</a
-					>
-				</div>
-				<p class="mt-6 mb-4 text-sm text-center text-gray-400">
-					<span>&copy; 2021 All rights reserved.</span>
-				</p>
-			</div>
-		</nav>
-	</div>
+<!-- header -->
+<section class="pb-24 bg-green-200">
+  <nav class="flex mb-16 justify-between items-center py-6 px-10 relative">
+    <a class="text-lg font-bold" href="#">
+      <img class="h-8" src="nigodo-assets/logo-nigodo.svg" alt="" width="auto">
+    </a>
+    <div class="xl:hidden">
+      <button class="navbar-burger focus:outline-none text-indigo-900 hover:text-indigo-800">
+        <svg class="block h-6 w-6" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Mobile menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+      </button>
+    </div>
+    <ul class="hidden xl:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <li><a class="text-lg mr-10 2xl:mr-16 font-extrabold hover:text-indigo-800" href="#">Product</a></li>
+      <li><a class="text-lg mr-10 2xl:mr-16 font-extrabold hover:text-indigo-800" href="#">Features</a></li>
+      <li><a class="text-lg mr-10 2xl:mr-16 font-extrabold hover:text-indigo-800" href="#">Pricing</a></li>
+      <li><a class="text-lg font-extrabold hover:text-indigo-800" href="#">Resources</a></li>
+    </ul>
+    <div class="hidden xl:flex items-center"><a class="inline-block mr-6 text-lg font-extrabold hover:text-indigo-800" href="#">Log In</a><a class="inline-block py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign Up</a></div>
+  </nav>
+  <div class="container px-4 mx-auto relative">
+    <div class="flex flex-wrap -mx-4 items-center">
+      <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+        <div class="max-w-lg mx-auto">
+          <span class="text-xl md:text-2xl font-extrabold text-orange-500">Section label</span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading mt-1 mb-6">Business is only as good as its tools.</h1>
+          <p class="text-xl md:text-2xl font-extrabold leading-8 mb-10">We&rsquo;re different. Nogodo is the only SaaS business platform that lets you run your business on one platform, seamlessly across all digital channels.</p>
+          <div>
+            <div class="flex mb-4 items-center">
+              <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+              <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+            </div>
+            <div class="flex mb-4 items-center">
+              <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+              <span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
+            </div>
+            <div class="flex items-center">
+              <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+              <span class="text-lg font-extrabold">Praesent varius justo vel justo pulvinar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2 px-4">
+        <div class="max-w-xl mx-auto py-16 px-6 md:px-14 bg-white border-3 border-indigo-900 shadow-md rounded-2xl text-center">
+          <img class="block mb-6 mx-auto" src="nigodo-assets/logo-icon-nigodo.svg" alt="">
+          <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Join our community</h2>
+          <p class="sm:text-lg font-extrabold text-indigo-500 mb-8">Start your free trial</p>
+          <div class="text-left mb-4 md:mb-6">
+            <label class="font-extrabold" for="">Email</label>
+            <input class="block w-full mt-2 p-4 text-lg font-extrabold placeholder-indigo-900 shadow border-3 border-indigo-900 rounded" type="email" placeholder="hello@shuffle.dev">
+          </div>
+          <a class="block mb-6 py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign Up</a>
+          <div class="flex mb-5 items-center">
+            <div class="h-px w-full bg-indigo-100"></div>
+            <span class="mx-2 text-sm text-indigo-300">OR</span>
+            <div class="h-px w-full bg-indigo-100"></div>
+          </div>
+          <a class="block mb-4 py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign in with Google</a><a class="block mb-4 py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign in with Facebook</a><a class="block py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign in with Apple</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden navbar-menu relative z-50">
+    <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+    <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-full md:w-5/6 max-w-sm py-8 px-8 bg-white border-r overflow-y-auto">
+      <div class="flex items-center mb-8">
+        <a class="mr-auto text-2xl font-bold leading-none" href="#">
+          <img class="h-6" src="nigodo-assets/logo-nigodo.svg" alt="" width="auto">
+        </a>
+        <button class="navbar-close">
+          <svg class="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="my-auto">
+        <ul class="py-10">
+          <li class="mb-1"><a class="block p-4 text-lg font-extrabold hover:bg-gray-50 rounded" href="#">Product</a></li>
+          <li class="mb-1"><a class="block p-4 text-lg font-extrabold hover:bg-gray-50 rounded" href="#">Features</a></li>
+          <li class="mb-1"><a class="block p-4 text-lg font-extrabold hover:bg-gray-50 rounded" href="#">Pricing</a></li>
+          <li class="mb-1"><a class="block p-4 text-lg font-extrabold hover:bg-gray-50 rounded" href="#">Resources</a></li>
+        </ul>
+      </div>
+      <div><a class="block mb-6 text-center leading-6 text-lg font-extrabold hover:text-indigo-800" href="#">Log In</a><a class="block py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Sign Up</a></div>
+    </nav>
+  </div>
 </section>
+
+
 <!-- features -->
-<section class="py-20">
-	<div class="container px-4 mx-auto">
-		<div class="flex flex-wrap items-center -mx-4">
-			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-				<img
-					class="rounded-lg w-full object-cover"
-					src="mockup-assets/images/gray-500-square.png"
-					alt=""
-				/>
-			</div>
-			<div class="w-full lg:w-1/2 px-4">
-				<div class="lg:max-w-sm lg:ml-auto">
-					<h2 class="mb-12 text-4xl md:text-5xl mt-3 font-bold font-heading">Lorem ipsum</h2>
-					<div class="flex mb-6">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
-								Quick problem-solving contact
-							</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-					<div class="flex mb-6">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
-								Making changes simple and easy
-							</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-					<div class="flex">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">Exchangeable at any time</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+<section class="py-48 bg-green-200">
+  <div class="container px-4 mx-auto relative">
+    <h1 class="max-w-2xl text-3xl md:text-4xl font-extrabold font-heading mb-16">We create world-class development and branding</h1>
+    <div class="flex flex-wrap -mx-4 -mb-16">
+      <div class="w-full md:w-1/2 px-4 mb-16">
+        <div class="h-full py-12 px-8 bg-white border-3 border-indigo-900 shadow-md rounded-2xl">
+          <img class="block mb-6" src="nigodo-assets/features/icon-message.svg" alt="">
+          <h4 class="text-2xl font-extrabold mb-4">Measure your performance</h4>
+          <p class="text-lg font-extrabold leading-7 mb-8">Stay connected with your team and make quick decisions wherever you are.</p>
+          <a class="text-lg font-extrabold text-green-500 hover:underline" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 px-4 mb-16">
+        <div class="h-full py-12 px-8 bg-white border-3 border-indigo-900 shadow-md rounded-2xl">
+          <img class="block mb-6" src="nigodo-assets/features/icon-bar.svg" alt="">
+          <h4 class="text-2xl font-extrabold mb-4">Custom analytics</h4>
+          <p class="text-lg font-extrabold leading-7 mb-8">Get a complete sales dashboard in the cloud. See activity, revenue and social metrics all in one place.</p>
+          <a class="text-lg font-extrabold text-green-500 hover:underline" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 px-4 mb-16">
+        <div class="h-full py-12 px-8 bg-white border-3 border-indigo-900 shadow-md rounded-2xl">
+          <img class="block mb-6" src="nigodo-assets/features/icon-people.svg" alt="">
+          <h4 class="text-2xl font-extrabold mb-4">Team Management</h4>
+          <p class="text-lg font-extrabold leading-7 mb-8">Our calendar lets you know what is happening with customer and projects so you.</p>
+          <a class="text-lg font-extrabold text-green-500 hover:underline" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 px-4 mb-16">
+        <div class="h-full py-12 px-8 bg-white border-3 border-indigo-900 shadow-md rounded-2xl">
+          <img class="block mb-6" src="nigodo-assets/features/icon-write.svg" alt="">
+          <h4 class="text-2xl font-extrabold mb-4">Build your website</h4>
+          <p class="text-lg font-extrabold leading-7 mb-8">A tool that lets you build a dream website even if you know nothing about web design or programming.</p>
+          <a class="text-lg font-extrabold text-green-500 hover:underline" href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="py-20">
-	<div class="container px-4 mx-auto">
-		<div class="flex flex-wrap items-center -mx-4">
-			<div class="w-full lg:w-1/2 px-4">
-				<div class="lg:max-w-sm">
-					<h2 class="mb-12 text-4xl md:text-5xl mt-3 font-bold font-heading">Lorem ipsum</h2>
-					<div class="flex mb-6">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
-								Quick problem-solving contact
-							</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-					<div class="flex mb-6">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
-								Making changes simple and easy
-							</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-					<div class="flex">
-						<div class="mr-5 text-gray-500">
-							<svg
-								class="w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewbox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						</div>
-						<div class="max-w-sm">
-							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">Exchangeable at any time</h3>
-							<p class="text-gray-500 leading-loose">
-								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
-								vestibulum.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-				<img
-					class="rounded-lg w-full object-cover"
-					src="mockup-assets/images/gray-500-square.png"
-					alt=""
-				/>
-			</div>
-		</div>
-	</div>
+<!-- Pricing -->
+
+<section class="py-48 bg-green-200">
+  <div class="container px-4 mx-auto">
+    <span class="text-lg font-extrabold text-green-500">Section label</span>
+    <h1 class="text-3xl md:text-4xl font-extrabold font-heading mt-4 mb-6">Business is only as good as its tools.</h1>
+    <p class="text-xl font-extrabold leading-8 mb-16">Pricing that scales with your business immediately.</p>
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full xl:w-1/3 px-4 mb-12 xl:mb-0">
+        <div class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md">
+          <div class="text-center mb-12">
+            <span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
+            <h2 class="text-2xl font-extrabold mb-6">Basic Plan</h2>
+            <div class="flex justify-center items-start mb-2">
+              <span class="pr-1 text-lg font-extrabold">$</span>
+              <span class="text-3xl md:text-4xl font-extrabold">10/mth</span>
+            </div>
+            <p class="text-lg font-extrabold leading-7">Billed annually</p>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
+          </div>
+          <div class="flex mb-8 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <a class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Get Started</a>
+        </div>
+      </div>
+      <div class="w-full xl:w-1/3 px-4 mb-12 xl:mb-0">
+        <div class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md">
+          <div class="text-center mb-12">
+            <span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
+            <h2 class="text-2xl font-extrabold mb-6">Freelancer Plan</h2>
+            <div class="flex justify-center items-start mb-2">
+              <span class="pr-1 text-lg font-extrabold">$</span>
+              <span class="text-3xl md:text-4xl font-extrabold">99/mth</span>
+            </div>
+            <p class="text-lg font-extrabold leading-7">Billed annually</p>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
+          </div>
+          <div class="flex mb-8 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <a class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Get Started</a>
+        </div>
+      </div>
+      <div class="w-full xl:w-1/3 px-4">
+        <div class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md">
+          <div class="text-center mb-12">
+            <span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
+            <h2 class="text-2xl font-extrabold mb-6">Enterprise Plan</h2>
+            <div class="flex justify-center items-start mb-2">
+              <span class="pr-1 text-lg font-extrabold">$</span>
+              <span class="text-3xl md:text-4xl font-extrabold">799/mth</span>
+            </div>
+            <p class="text-lg font-extrabold leading-7">Billed annually</p>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <div class="flex mb-4 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
+          </div>
+          <div class="flex mb-8 items-start">
+            <img class="block w-6 h-6 mr-2 object-contain" src="nigodo-assets/circle-icon-green.svg" alt="">
+            <span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
+          </div>
+          <a class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200" href="#">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+
+<section class="bg-green-200">
+  <div class="pt-26 border-3 border-l-0 border-r-0 border-indigo-900">
+    <div class="pb-16 border-b-3 border-indigo-900">
+      <div class="container px-4 mx-auto text-center">
+        <a class="inline-block mx-auto mb-20" href="#">
+          <img class="h-12" src="nigodo-assets/logo-nigodo.svg" alt="">
+        </a>
+        <div class="flex flex-wrap -mx-4 -mb-6 justify-center">
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Product</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Features</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Pricing</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Resources</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Careers</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6 md:mr-10 2xl:mr-16"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Help</a></div>
+          <div class="w-full md:w-1/3 xl:w-auto px-4 mb-6"><a class="text-xl md:text-2xl font-extrabold hover:text-indigo-800" href="#">Privacy</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-4 pt-16 pb-24 mx-auto">
+      <p class="text-center text-xl md:text-2xl font-extrabold">&copy; 2022 Nigodo. All rights reserved.</p>
+    </div>
+  </div>
 </section>
