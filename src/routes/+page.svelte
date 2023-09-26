@@ -1,9 +1,9 @@
 <script>
-  let hidden = true;
+	let hidden = true;
 
-  function toggleHidden() {
-    hidden = !hidden;
-  }
+	function toggleHidden() {
+		hidden = !hidden;
+	}
 </script>
 
 <section>
@@ -13,7 +13,10 @@
 				<img class="h-8" src="mockup-assets/logos/shuffle-ux.svg" alt="" width="auto" />
 			</a>
 			<div class="lg:hidden">
-				<button class="block navbar-burger text-gray-500 hover:text-gray-600 focus:outline-none" on:click={toggleHidden}>
+				<button
+					class="block navbar-burger text-gray-500 hover:text-gray-600 focus:outline-none"
+					on:click={toggleHidden}
+				>
 					<svg
 						class="h-4 w-4"
 						fill="currentColor "
@@ -36,9 +39,9 @@
 				href="#">Contact Us</a
 			>
 		</nav>
-		<div class="flex flex-wrap items-center -mx-4 lg:my-10">
-			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0 flex-col items-center">
-				<form action="#" class="w-2/3 flex-col items-center">
+		<div class="flex  items-center -mx-4 lg:my-10 flex-wrap-reverse lg:flex-wrap">
+			<div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-8 md:mb-0 flex-col items-center">
+				<form action="#" class="md:w-2/3 flex-col items-center">
 					<input
 						class="w-full py-3 pl-3 mb-4 bg-white border rounded-lg"
 						type="email"
@@ -82,26 +85,20 @@
 					hit <span aria-hidden="true">▶️</span>.<span class="sr-only invisible">play</span>
 				</p>
 			</div>
-
-			<button
-				class="block mt-10 lg:mt-20 mx-auto w-16 h-16 p-5 rounded-full bg-gray-50 hover:bg-gray-100"
-			>
-				<svg
-					class="mx-auto text-gray-500"
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewbox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M19 9l-7 7-7-7"
-					/>
-				</svg>
-			</button>
 		</div>
+		<button
+			class="block mt-10 lg:mt-20 mx-auto w-16 h-16 p-5 rounded-full bg-gray-50 hover:bg-gray-100"
+		>
+			<svg
+				class="mx-auto text-gray-500"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewbox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+			</svg>
+		</button>
 	</div>
 	<div class="navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50" class:hidden>
 		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" />
@@ -169,5 +166,3 @@
 		</nav>
 	</div>
 </section>
-
-
