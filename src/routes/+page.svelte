@@ -29,17 +29,17 @@
 				</button>
 			</div>
 			<ul class="hidden lg:flex ml-auto mr-10 items-center w-auto space-x-12">
-				<li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">About</a></li>
-				<li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Company</a></li>
-				<li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Services</a></li>
-				<li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Testimonials</a></li>
+				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">About</a></li> -->
+				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Company</a></li> -->
+				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Features</a></li> -->
+				<!-- <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">Testimonials</a></li> -->
 			</ul>
-			<a
+			<!-- <a
 				class="hidden lg:block px-6 py-3 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded"
 				href="#">Contact Us</a
-			>
+			> -->
 		</nav>
-		<div class="flex  items-center -mx-4 lg:my-10 flex-wrap-reverse lg:flex-wrap">
+		<div class="flex items-center -mx-4 lg:my-10 flex-wrap-reverse lg:flex-wrap">
 			<div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-8 md:mb-0 flex-col items-center">
 				<form action="#" class="md:w-2/3 flex-col items-center">
 					<input
@@ -164,5 +164,201 @@
 				</p>
 			</div>
 		</nav>
+	</div>
+</section>
+<!-- features -->
+<section class="py-20">
+	<div class="container px-4 mx-auto">
+		<div class="flex flex-wrap items-center -mx-4">
+			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+				<img
+					class="rounded-lg w-full object-cover"
+					src="mockup-assets/images/gray-500-square.png"
+					alt=""
+				/>
+			</div>
+			<div class="w-full lg:w-1/2 px-4">
+				<div class="lg:max-w-sm lg:ml-auto">
+					<h2 class="mb-12 text-4xl md:text-5xl mt-3 font-bold font-heading">Lorem ipsum</h2>
+					<div class="flex mb-6">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
+								Quick problem-solving contact
+							</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+					<div class="flex mb-6">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
+								Making changes simple and easy
+							</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+					<div class="flex">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">Exchangeable at any time</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="py-20">
+	<div class="container px-4 mx-auto">
+		<div class="flex flex-wrap items-center -mx-4">
+			<div class="w-full lg:w-1/2 px-4">
+				<div class="lg:max-w-sm">
+					<h2 class="mb-12 text-4xl md:text-5xl mt-3 font-bold font-heading">Lorem ipsum</h2>
+					<div class="flex mb-6">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
+								Quick problem-solving contact
+							</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+					<div class="flex mb-6">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">
+								Making changes simple and easy
+							</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+					<div class="flex">
+						<div class="mr-5 text-gray-500">
+							<svg
+								class="w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewbox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+						</div>
+						<div class="max-w-sm">
+							<h3 class="mb-2 -mt-1 text-2xl font-bold font-heading">Exchangeable at any time</h3>
+							<p class="text-gray-500 leading-loose">
+								Etiam pellentesque non nibh non pulvinar. Mauris posuere, tellus sit amet tempus
+								vestibulum.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+				<img
+					class="rounded-lg w-full object-cover"
+					src="mockup-assets/images/gray-500-square.png"
+					alt=""
+				/>
+			</div>
+		</div>
 	</div>
 </section>
