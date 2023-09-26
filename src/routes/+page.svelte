@@ -1,3 +1,11 @@
+<script>
+  let hidden = true;
+
+  function toggleHidden() {
+    hidden = !hidden;
+  }
+</script>
+
 <section>
 	<div class="container px-4 mx-auto">
 		<nav class="flex justify-between items-center py-8">
@@ -5,7 +13,7 @@
 				<img class="h-8" src="mockup-assets/logos/shuffle-ux.svg" alt="" width="auto" />
 			</a>
 			<div class="lg:hidden">
-				<button class="block navbar-burger text-gray-500 hover:text-gray-600 focus:outline-none">
+				<button class="block navbar-burger text-gray-500 hover:text-gray-600 focus:outline-none" on:click={toggleHidden}>
 					<svg
 						class="h-4 w-4"
 						fill="currentColor "
@@ -29,29 +37,52 @@
 			>
 		</nav>
 		<div class="flex flex-wrap items-center -mx-4 lg:my-10">
-			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0 flex-col items-center">
+				<form action="#" class="w-2/3 flex-col items-center">
+					<input
+						class="w-full py-3 pl-3 mb-4 bg-white border rounded-lg"
+						type="email"
+						placeholder="E-mail address"
+					/>
+					<input
+						class="w-full py-3 pl-3 mb-4 bg-white border rounded-lg"
+						type="password"
+						placeholder="Password"
+					/>
+					<button
+						class="w-full inline-block px-6 py-3 mb-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200"
+						>Get Started</button
+					>
+					<a class="text-sm text-gray-500 hover:underline" href="#">Forgot password?</a>
+					<a
+						class="flex items-center justify-center mt-4 mb-4 py-3 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-lg"
+						href="#"
+					>
+						<img class="w-5 h-5 mr-2" src="mockup-assets/socials/facebook.svg" alt="" />
+						<span class="text-sm font-bold text-gray-500">Sign in with Facebook</span>
+					</a>
+					<a
+						class="flex items-center justify-center py-3 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-lg"
+						href="#"
+					>
+						<img class="w-5 h-5 mr-2" src="mockup-assets/socials/twitter.svg" alt="" />
+						<span class="text-sm font-bold text-gray-500">Sign in with Twitter</span>
+					</a>
+				</form>
+			</div>
+			<div class="w-full md:w-1/2 px-4">
+				<img
+					class="object-cover w-full rounded-xl h-72 mb-8"
+					src="mockup-assets/images/gray-500-square.png"
+					alt=""
+				/>
 				<h2 class="mb-8 text-4xl lg:text-5xl font-bold max-w-sm">Command your finances.</h2>
 				<p class="mb-6 text-lg text-gray-500 leading-loose max-w-lg">
 					Pockets allows people to tell their money where and when to go. Make financial plans and
 					hit <span aria-hidden="true">▶️</span>.<span class="sr-only invisible">play</span>
 				</p>
-				<div class="flex flex-wrap">
-					<a
-						class="inline-block px-6 py-2 mr-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200"
-						href="#">Track your performance</a
-					><a
-						class="inline-block px-6 py-2 text-sm text-gray-500 hover:text-gray-600 font-bold leading-loose border border-gray-100 hover:border-gray-200 rounded"
-						href="#">Learn More</a
-					>
-				</div>
 			</div>
-			<div class="w-full md:w-1/2 px-4">
-				<img
-					class="object-cover w-full rounded-xl"
-					src="mockup-assets/images/gray-500-square.png"
-					alt=""
-				/>
-			</div>
+
 			<button
 				class="block mt-10 lg:mt-20 mx-auto w-16 h-16 p-5 rounded-full bg-gray-50 hover:bg-gray-100"
 			>
@@ -72,14 +103,14 @@
 			</button>
 		</div>
 	</div>
-	<div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+	<div class="navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50" class:hidden>
 		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" />
 		<nav class="relative flex flex-col py-6 px-6 w-full h-full bg-white border-r overflow-y-auto">
 			<div class="flex items-center mb-8">
 				<a class="mr-auto text-2xl font-semibold leading-none" href="#">
 					<img class="h-8" src="mockup-assets/logos/shuffle-ux.svg" alt="" width="auto" />
 				</a>
-				<button class="navbar-close">
+				<button class="navbar-close" on:click={toggleHidden}>
 					<svg
 						class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
 						xmlns="http://www.w3.org/2000/svg"
