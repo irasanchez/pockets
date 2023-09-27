@@ -1,23 +1,17 @@
+
+
+<script>
+  import animation from "$lib/images/finance-stability.gif"
+  import pocketsTitle from "$lib/images/pockets_title.svg"
+</script>
 <!-- header -->
 <section class="pb-24 landing">
-	<nav class="flex mb-16 justify-between items-center py-6 px-10 relative">
+	<nav class="flex mb-16 justify-between items-center py-6 px-10 relative bg-green-400 border-3 border-indigo-900 border-b-8">
 		<a class="text-lg font-bold" href="#">
 			<img class="h-8" src="" alt="" width="auto" />
 		</a>
-		<div class="xl:hidden">
-			<button class="navbar-burger focus:outline-none text-indigo-900 hover:text-indigo-800">
-				<svg
-					class="block h-6 w-6"
-					fill="currentColor"
-					viewbox="0 0 20 20"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<title>Mobile menu</title>
-					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-				</svg>
-			</button>
-		</div>
-		<ul
+    <h1 class="mx-auto lg:text-9xl font-extrabold text-5xl"><img src={pocketsTitle} aria-label="Pockets"/></h1>
+		<!-- <ul
 			class="hidden xl:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
 		>
 			<li>
@@ -31,24 +25,18 @@
 				<a class="text-lg mr-10 2xl:mr-16 font-extrabold hover:text-indigo-800" href="#">Pricing</a>
 			</li>
 			<li><a class="text-lg font-extrabold hover:text-indigo-800" href="#">Resources</a></li>
-		</ul>
-		<div class="hidden xl:flex items-center">
-			<a class="inline-block mr-6 text-lg font-extrabold hover:text-indigo-800" href="#">Log In</a
-			><a
-				class="inline-block py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
-				href="#">Sign Up</a
-			>
-		</div>
+		</ul> -->
 	</nav>
 	<div class="container px-4 mx-auto relative">
 		<div class="flex flex-wrap -mx-4 items-center">
 			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-				<div class="max-w-lg lg:mx-auto">
+				<div class="max-w-lg lg:mx-auto  bg-yellow-400 border-3 border-indigo-900 shadow-md rounded-2xl flex flex-col items-center">
 					<h1
-						class=" font-extrabold sm:text-4xl lg:text-9xl font-heading mt-1 mb-6 max-w-xl mx-auto py-16 px-6 md:px-14 bg-white border-3 border-indigo-900 shadow-md rounded-2xl text-center"
+						class="text-4xl lg:text-7xl font-heading mt-1 mb-6 max-w-xl mx-auto py-12 px-6 md:px-14 text-center"
 					>
 						Make your cash flow.
 					</h1>
+          <img src={animation} class="bg-yellow-400 w-2/3 mb-12" />
 				</div>
 			</div>
 			<div class="w-full lg:w-1/2 px-4">
@@ -56,14 +44,14 @@
 					class="max-w-xl mx-auto py-16 px-6 md:px-14 bg-white border-3 border-indigo-900 shadow-md rounded-2xl text-center"
 				>
 					<img class="block mb-6 mx-auto" src="" alt="" />
-					<h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Join our community</h2>
-					<p class="sm:text-lg font-extrabold text-indigo-500 mb-8">Start your free trial</p>
+					<h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Sign Up</h2>
+					<p class="sm:text-lg font-extrabold text-indigo-500 mb-8">or login</p>
 					<div class="text-left mb-4 md:mb-6">
 						<label class="font-extrabold" for="">Email</label>
 						<input
 							class="block w-full mt-2 p-4 text-lg font-extrabold placeholder-indigo-900 shadow border-3 border-indigo-900 rounded"
 							type="email"
-							placeholder="hello@shuffle.dev"
+							placeholder="hannibal.lecter@gmail.com"
 						/>
 					</div>
 					<a
@@ -78,12 +66,6 @@
 					<a
 						class="block mb-4 py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200"
 						href="#">Sign in with Google</a
-					><a
-						class="block mb-4 py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200"
-						href="#">Sign in with Facebook</a
-					><a
-						class="block py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200"
-						href="#">Sign in with Apple</a
 					>
 				</div>
 			</div>
