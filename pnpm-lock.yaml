@@ -41,6 +41,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.4.3(postcss-load-config@4.0.1)(postcss@8.4.24)(svelte@4.0.5)
+  svelte-range-slider-pips:
+    specifier: ^2.2.3
+    version: 2.2.3
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2
@@ -1825,6 +1828,10 @@ packages:
       strip-indent: 3.0.0
       svelte: 4.0.5
       typescript: 5.2.2
+    dev: true
+
+  /svelte-range-slider-pips@2.2.3:
+    resolution: {integrity: sha512-ZAwX9+NDOE6cdqUTMfwBw27YI7NFgSXyPS1ARx3Zuaish2q6FuAtgx5d9+uqNzxQ7WVFhxgM7iQp8MvCpvy4Jw==}
     dev: true
 
   /svelte@4.0.5:
