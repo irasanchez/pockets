@@ -2,6 +2,10 @@
 	import animation from '$lib/images/finance-stability.gif';
 	import pocketsTitle from '$lib/images/pockets_title.svg';
 	import githubLogo from '$lib/images/github-mark.svg';
+	import RangeSlider from 'svelte-range-slider-pips';
+
+	let currentPrice = 10;
+	let monthlyOrAnnual = true;
 </script>
 
 <!-- header -->
@@ -32,7 +36,7 @@
 		</ul> -->
 	</nav>
 	<div class="container px-4 mx-auto relative">
-		<div class="flex flex-wrap mx-auto items-center">
+		<div class="flex flex-wrap mx-auto items-stretch">
 			<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
 				<div
 					class="w-100 lg:mx-auto bg-yellow-400 border-3 border-indigo-900 shadow-md rounded-2xl flex flex-col items-center"
@@ -49,7 +53,6 @@
 				<div
 					class="max-w-xl mx-auto py-16 px-6 md:px-14 bg-white border-3 border-indigo-900 shadow-md rounded-2xl text-center"
 				>
-					<img class="block mb-6 mx-auto" src="" alt="" />
 					<h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Sign Up</h2>
 					<p class="sm:text-lg font-extrabold text-indigo-500 mb-8">for the waitlist.</p>
 					<div class="text-left mb-4 md:mb-6">
@@ -193,14 +196,16 @@
 
 <!-- Pricing -->
 
-<section class="py-48 bg-purple-400">
+<section class="py-48 bg-pink-400">
 	<div class="container px-4 mx-auto">
 		<h2 class="text-3xl md:text-4xl font-extrabold font-heading mt-4 mb-6">
 			Fair pricing for unfair times.
 		</h2>
 		<p class="text-xl font-extrabold leading-8 mb-16">
-			Pay what you can or what you feel Pockets is worth to you. Profits go to "funding" my dogs'
-			bowls. <span aria-hidden="true">🐾</span>
+			Pay what you can or what you feel Pockets is worth to you. Funds go towards paying for the
+			APIs that make this service possible. And to feeding my dogs. <span aria-hidden="true"
+				>🐾</span
+			>
 		</p>
 		<div class="flex flex-wrap -mx-4">
 			<div class="w-full xl:w-1/3 px-4 mb-12 xl:mb-0">
@@ -208,92 +213,72 @@
 					class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md"
 				>
 					<div class="text-center mb-12">
-						<span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
-						<h2 class="text-2xl font-extrabold mb-6">Basic Plan</h2>
+						<span class="block text-lg font-extrabold text-green-500 leading-7" aria-hidden="true"
+							>🔆</span
+						>
+						<h2 class="text-2xl font-extrabold mb-6">The Every Plan</h2>
 						<div class="flex justify-center items-start mb-2">
 							<span class="pr-1 text-lg font-extrabold">$</span>
-							<span class="text-3xl md:text-4xl font-extrabold">10/mth</span>
+							<span class="text-3xl md:text-4xl font-extrabold"
+								>{monthlyOrAnnual
+									? currentPrice - currentPrice * 0.1
+									: currentPrice}/{monthlyOrAnnual ? 'yr' : 'mth'}</span
+							>
 						</div>
-						<p class="text-lg font-extrabold leading-7">Billed annually</p>
-					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
-					</div>
-					<div class="flex mb-8 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<a
-						class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
-						href="#">Get Started</a
-					>
-				</div>
-			</div>
-			<div class="w-full xl:w-1/3 px-4 mb-12 xl:mb-0">
-				<div
-					class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md"
-				>
-					<div class="text-center mb-12">
-						<span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
-						<h2 class="text-2xl font-extrabold mb-6">Freelancer Plan</h2>
-						<div class="flex justify-center items-start mb-2">
-							<span class="pr-1 text-lg font-extrabold">$</span>
-							<span class="text-3xl md:text-4xl font-extrabold">99/mth</span>
+						<div class="flex justify-center">
+							<!-- annual vs monthly switch -->
+							<div class="flex items-center">
+								<button
+									type="button"
+									class={`bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${
+										monthlyOrAnnual ? 'bg-indigo-600' : 'bg-gray-200'
+									}`}
+									role="switch"
+									aria-checked="false"
+									aria-labelledby="annual-billing-label"
+									on:click={() => (monthlyOrAnnual = !monthlyOrAnnual)}
+								>
+									<span
+										aria-hidden="true"
+										class={`inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
+											monthlyOrAnnual ? 'translate-x-5' : 'translate-x-0'
+										}`}
+									/>
+								</button>
+								<span class="ml-3 text-sm" id="annual-billing-label">
+									<span class="font-medium text-gray-900"
+										>{monthlyOrAnnual ? 'Annual' : 'Monthly'} billing</span
+									>
+									{#if monthlyOrAnnual}
+										<span class="text-gray-500">(Save 10%)</span>
+									{/if}
+								</span>
+							</div>
+							<!-- annual vs monthly switch end -->
 						</div>
-						<p class="text-lg font-extrabold leading-7">Billed annually</p>
 					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
-					</div>
-					<div class="flex mb-8 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<a
-						class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
-						href="#">Get Started</a
-					>
-				</div>
-			</div>
-			<div class="w-full xl:w-1/3 px-4">
-				<div
-					class="max-w-md mx-auto px-6 py-12 md:p-12 bg-white border-3 border-indigo-900 rounded-2xl shadow-md"
-				>
-					<div class="text-center mb-12">
-						<span class="block text-lg font-extrabold text-green-500 leading-7">Custom Tag</span>
-						<h2 class="text-2xl font-extrabold mb-6">Enterprise Plan</h2>
-						<div class="flex justify-center items-start mb-2">
-							<span class="pr-1 text-lg font-extrabold">$</span>
-							<span class="text-3xl md:text-4xl font-extrabold">799/mth</span>
+					<div class="flex mb-4 items-start flex-col">
+						<div class="w-full block mb-12">
+							<!-- @ts-expect-error: Have no control over this -->
+							<RangeSlider
+								range={false}
+								min={0}
+								max={monthlyOrAnnual ? 240 : 20}
+								pips={true}
+								pipstep={monthlyOrAnnual ? 240 : 20}
+								first="label"
+								last="label"
+								on:change={(e) => {
+									currentPrice = e.detail.value;
+								}}
+							/>
 						</div>
-						<p class="text-lg font-extrabold leading-7">Billed annually</p>
+
+						<button
+							class="block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
+							href="#">Get Started</button
+						>
 					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<div class="flex mb-4 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Suspendisse mollis tincidunt</span>
-					</div>
-					<div class="flex mb-8 items-start">
-						<img class="block w-6 h-6 mr-2 object-contain" src="" alt="" />
-						<span class="text-lg font-extrabold">Mauris pellentesque congue libero nec</span>
-					</div>
-					<a
-						class="inline-block w-full py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
-						href="#">Get Started</a
-					>
 				</div>
 			</div>
 		</div>
