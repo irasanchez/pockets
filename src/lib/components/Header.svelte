@@ -1,20 +1,8 @@
 <script>
 	import WaitlistForm from './WaitlistForm.svelte';
-
 	import HeroImageAndSlogan from './HeroImageAndSlogan.svelte';
-
 	import Navbar from './Navbar.svelte';
-
-	import animation from '$lib/images/finance-stability.gif';
-	import pocketsTitle from '$lib/images/pockets_title.svg';
-
-	import RangeSlider from 'svelte-range-slider-pips';
 	import { writable } from 'svelte/store';
-	import Features from '$lib/components/Features.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-
-	let currentPrice = 10;
-	let monthlyOrAnnual = true;
 	let email = '';
 	let waitlistStatus = writable({
 		loading: false,
@@ -85,7 +73,6 @@
 		<HeroImageAndSlogan />
 		<WaitlistForm />
 	</div>
-	
 </section>
 
 <style>
