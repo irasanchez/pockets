@@ -1,5 +1,7 @@
 <script>
-	import Header from '../lib/components/Header.svelte';
+  import HeroImageAndSlogan from './HeroImageAndSlogan.svelte';
+
+	import Navbar from './Navbar.svelte';
 
 	import animation from '$lib/images/finance-stability.gif';
 	import pocketsTitle from '$lib/images/pockets_title.svg';
@@ -9,6 +11,8 @@
 	import Features from '$lib/components/Features.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
+	let currentPrice = 10;
+	let monthlyOrAnnual = true;
 	let email = '';
 	let waitlistStatus = writable({
 		loading: false,
@@ -73,11 +77,48 @@
 	}
 </script>
 
-<Header />
-
-<Features />
-
-<Footer />
+<div class="w-full lg:w-1/2 px-4">
+				<div
+					class="max-w-xl mx-auto py-16 px-6 md:px-14 bg-white border-3 border-indigo-900 shadow-md rounded-2xl text-center"
+				>
+					<h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Sign Up</h2>
+					<p class="sm:text-lg font-extrabold text-indigo-500 mb-8">for the waitlist.</p>
+					{#if waitlistStatus.message}
+						<p
+							class={`sm:text-lg font-extrabold ${
+								waitlistStatus.error ? 'text-red-500' : 'text-green-500'
+							}`}
+						>
+							{waitlistStatus.message}
+						</p>
+					{/if}
+					<div class="text-left mb-4 md:mb-6">
+						<label class="font-extrabold" for="">Email</label>
+						<input
+							class="block w-full mt-2 p-4 text-lg font-extrabold placeholder-indigo-900 shadow border-3 border-indigo-900 rounded"
+							value={email}
+							on:input={handleInput}
+							type="email"
+							placeholder="hannibal.lecter@gmail.com"
+						/>
+					</div>
+					<button
+						on:click={signUpForWaitlist}
+						class="w-full mb-6 py-4 px-6 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200"
+						>Sign Up</button
+					>
+					<div class="flex mb-5 items-center">
+						<div class="h-px w-full bg-indigo-100" />
+						<span class="mx-2 text-sm text-indigo-300">coming soon</span>
+						<div class="h-px w-full bg-indigo-100" />
+					</div>
+					<button
+						class="block mb-4 py-4 px-6 text-center hover:text-white leading-6 text-lg font-extrabold bg-white hover:bg-indigo-800 border-3 border-indigo-900 shadow rounded transition duration-200 w-full disabled:cursor-not-allowed disabled:opacity-50"
+						disabled={true}
+						href="#">Sign in with Google</button
+					>
+				</div>
+			</div>
 
 <style>
 	.landing {
@@ -86,3 +127,4 @@
 		background-repeat: repeat;
 	}
 </style>
+

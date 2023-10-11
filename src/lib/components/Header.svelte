@@ -1,5 +1,9 @@
 <script>
-	import Header from '../lib/components/Header.svelte';
+	import WaitlistForm from './WaitlistForm.svelte';
+
+	import HeroImageAndSlogan from './HeroImageAndSlogan.svelte';
+
+	import Navbar from './Navbar.svelte';
 
 	import animation from '$lib/images/finance-stability.gif';
 	import pocketsTitle from '$lib/images/pockets_title.svg';
@@ -9,6 +13,8 @@
 	import Features from '$lib/components/Features.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
+	let currentPrice = 10;
+	let monthlyOrAnnual = true;
 	let email = '';
 	let waitlistStatus = writable({
 		loading: false,
@@ -73,11 +79,14 @@
 	}
 </script>
 
-<Header />
-
-<Features />
-
-<Footer />
+<section class="pb-24 landing">
+	<Navbar />
+	<div class="container px-4 mx-auto relative">
+		<HeroImageAndSlogan />
+		<WaitlistForm />
+	</div>
+	
+</section>
 
 <style>
 	.landing {

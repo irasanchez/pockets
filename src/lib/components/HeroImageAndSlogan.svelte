@@ -1,5 +1,5 @@
 <script>
-	import Header from '../lib/components/Header.svelte';
+	import Navbar from './Navbar.svelte';
 
 	import animation from '$lib/images/finance-stability.gif';
 	import pocketsTitle from '$lib/images/pockets_title.svg';
@@ -9,6 +9,8 @@
 	import Features from '$lib/components/Features.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
+	let currentPrice = 10;
+	let monthlyOrAnnual = true;
 	let email = '';
 	let waitlistStatus = writable({
 		loading: false,
@@ -73,11 +75,20 @@
 	}
 </script>
 
-<Header />
-
-<Features />
-
-<Footer />
+<div class="flex flex-wrap mx-auto items-stretch">
+	<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+		<div
+			class="w-100 lg:mx-auto bg-yellow-400 border-3 border-indigo-900 shadow-md rounded-2xl flex flex-col items-center"
+		>
+			<h1
+				class="text-4xl px-2 md:px-8 lg:font-normal md:text-7xl lg:text-8xl font-heading mt-1 mb-6 max-w-xl mx-auto py-12 lg:px-6 text-center"
+			>
+				Make your cash flow.
+			</h1>
+			<img src={animation} class="bg-yellow-400 w-full mb-12" />
+		</div>
+	</div>
+</div>
 
 <style>
 	.landing {
