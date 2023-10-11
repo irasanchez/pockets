@@ -5,23 +5,20 @@
 	 */
 	let features = [
 		{
-			title: 'Tell your money when and where to go',
-			description: `Finance is unpredictable for most people these days. Set up rules by proportion, group
-						rules by circumstances, and sit back to watch them work for you.`
+			title: "Put your money in your pocket",
+			description: `You can make a pocket for anything: a bill, a goal, a budget category you always forget to account for, whatever you'll need to put money towards.`
 		},
 		{
-			title: "Know what money you've set aside and why",
-			description: `Set up a pocket for anything: rent, microloans, student loans, products in priority
-						order. And see them all in one place!`
+			title: 'Have confidence in your budget',
+			description: `Just like the envelope system in real life, money in a pocket can't be spent on accident and is ready when you need it.`
 		},
 		{
-			title: "Keep your spending money separate",
-			description: `And do it without opening a million accounts, unless you want to. 🤷‍♀️`
+			title: "Prioritize and plan for the future",
+			description: `With pockets, you can sort, pause, reinstate, and transfer money from one pocket to another or between bank accounts.`
 		},
 		{
-			title: "One financial control center",
-			description: `No more having to deal with each bank website to manage automated transfers and bill
-						pay.`
+			title: "Keep it simple",
+			description: `I built this, because I was pulling my hair out trying to manage variable income in a world with invariable, unforgiving bills. I hope it helps you do the same.`
 		},
 
 	];

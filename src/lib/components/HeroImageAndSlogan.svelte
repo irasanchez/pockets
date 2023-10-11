@@ -74,7 +74,7 @@
 	}
 </script>
 
-<div class="flex flex-wrap mx-auto items-stretch">
+
 	<div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
 		<div
 			class="w-100 lg:mx-auto bg-yellow-400 border-3 border-indigo-900 shadow-md rounded-2xl flex flex-col items-center"
@@ -87,7 +87,7 @@
 			<img alt="" src={animation} class=" bg-yellow-400 w-full mb-12"  />
 		</div>
 	</div>
-</div>
+
 
 <style>
 </style>

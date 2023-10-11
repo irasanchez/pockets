@@ -44,6 +44,9 @@
 					alt="GitHub Logo"
 				/>
 			</p>
+			<p class="text-center">
+				"Workers of the world unite; you have nothing to lose but your chains."
+			</p>
 		</div>
 	</div>
 </section>

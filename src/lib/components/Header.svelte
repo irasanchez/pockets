@@ -70,8 +70,10 @@
 <section class="pb-24 landing">
 	<Navbar />
 	<div class="container px-4 mx-auto relative">
-		<HeroImageAndSlogan />
-		<WaitlistForm />
+		<div class="flex flex-wrap mx-auto items-stretch">
+			<HeroImageAndSlogan />
+			<WaitlistForm />
+		</div>
 	</div>
 </section>
 
